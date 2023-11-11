@@ -1,24 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lzc-MK-jit">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="UdT-Ne-uwQ">
+            <objects>
+                <navigationController id="Lzc-MK-jit" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bFO-bM-A2H">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="compactAppearance"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="j49-fZ-EUw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H56-KR-ASS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-618" y="4"/>
+        </scene>
+        <!--SideMenu-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="SideMenu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This label will update on side menu selection." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5g-LX-VA3">
+                                <rect key="frame" x="25" y="376" width="343" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="nSK-aW-QY9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Usj-Df-soI">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Usj-Df-soI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4ZG-7F-ntm"/>
+                            <constraint firstItem="N5g-LX-VA3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="555-6U-3wh"/>
+                            <constraint firstItem="Usj-Df-soI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6dJ-YE-U5h"/>
+                            <constraint firstAttribute="bottom" secondItem="Usj-Df-soI" secondAttribute="bottom" id="YCV-xo-Wwr"/>
+                            <constraint firstItem="N5g-LX-VA3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gBS-wv-JcA"/>
+                            <constraint firstItem="Usj-Df-soI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tng-U3-s4Y"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="SideMenu" id="09m-cP-phB">
+                        <barButtonItem key="leftBarButtonItem" image="line.3.horizontal" catalog="system" id="7yR-RY-ogR">
+                            <connections>
+                                <action selector="hamburgerMenuButtonTapped:" destination="BYZ-38-t0r" id="1Os-9T-0kU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="hamburgerMenuButton" destination="7yR-RY-ogR" id="qL3-ac-PeW"/>
+                        <outlet property="selectionLabel" destination="N5g-LX-VA3" id="dSP-Dv-4i9"/>
+                        <outlet property="sideMenuShadowView" destination="Usj-Df-soI" id="PKN-IG-DUL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="125.95419847328243" y="3.5211267605633805"/>
+        </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="Eph-3x-XsO">
+            <objects>
+                <viewController storyboardIdentifier="SideMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5O3-os-LHY" customClass="SideMenuViewController" customModule="SideMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QOL-Da-gGt">
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="650"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V3L-DJ-Gp6">
+                                <rect key="frame" x="0.0" y="0.0" width="290" height="650"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="identifier" textLabel="Fwc-fO-5x4" style="IBUITableViewCellStyleDefault" id="Pzb-Xh-ohw">
+                                        <rect key="frame" x="0.0" y="50" width="290" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pzb-Xh-ohw" id="s7j-3d-3DZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="263.66666666666669" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" tag="1" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fwc-fO-5x4">
+                                                    <rect key="frame" x="16" y="0.0" width="239.66666666666669" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Tb7-UE-lhv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="V3L-DJ-Gp6" firstAttribute="top" secondItem="QOL-Da-gGt" secondAttribute="top" id="2QU-0K-eAS"/>
+                            <constraint firstItem="V3L-DJ-Gp6" firstAttribute="leading" secondItem="Tb7-UE-lhv" secondAttribute="leading" id="4fj-Iw-WJQ"/>
+                            <constraint firstItem="V3L-DJ-Gp6" firstAttribute="centerX" secondItem="QOL-Da-gGt" secondAttribute="centerX" id="Aw9-Md-wwJ"/>
+                            <constraint firstItem="V3L-DJ-Gp6" firstAttribute="bottom" secondItem="Tb7-UE-lhv" secondAttribute="bottom" id="XWt-vx-d8A"/>
+                            <constraint firstItem="V3L-DJ-Gp6" firstAttribute="trailing" secondItem="Tb7-UE-lhv" secondAttribute="trailing" id="cpx-a4-41c"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="290" height="650"/>
+                    <connections>
+                        <outlet property="sideMenuTableView" destination="V3L-DJ-Gp6" id="Znr-sl-g0X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pTh-xU-Jfa" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="-75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
