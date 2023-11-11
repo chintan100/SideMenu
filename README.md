@@ -1,3 +1,6 @@
+![Simulator-Screen-Recording-iPhon](https://github.com/chintan100/SideMenu/assets/1689870/d1f26be2-ddff-4b49-a43d-dee4db4abb52)
+
+
 # SideMenu
 This is a sample app showing how to add Side Menu to an iOS app using Swift and Storyboards.
 
